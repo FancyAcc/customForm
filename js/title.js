@@ -3,4 +3,6 @@
  */
 $(function () {
     var i = 0;
+    var type='title';
+    $('')
 });
