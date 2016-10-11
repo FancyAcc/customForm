@@ -3,6 +3,8 @@
  */
 $(function () {
     var i = 0;
-    var type='title';
-    $('')
+    var type = 'title';
+    $('#title').bind('click', function () {
+
+    })
 });
