@@ -3,6 +3,21 @@
  */
 $(function () {
 
+    var defaultX = $('#containment-wrapper').position().left;
+    var defaultY = $('#containment-wrapper').position().top;
+
+    $('#drag').draggable({
+        /*拖动*/
+        cursor: "move",
+        containment: "#containment-wrapper",
+        scroll: false
+    }).resizable({
+        /*尺寸变更*/
+        containment: "#containment-wrapper",
+        minHeight: 40,
+        minWidth: 300
+    });
+
     //准备变量
     var i = 0;
     /**
@@ -13,7 +28,7 @@ $(function () {
         var type = 'text';
         i++;
         //在画布中添加控件
-        $('#containment-wrapper').append('<div style="width: 200px;border: 1px solid;z-index: " id="div' + type + i + '">' +
+        $('#containment-wrapper').append('<div style="width: 200px;border: 1px solid;left:0px;top:1px;position:absolute" id="div' + type + i + '">' +
             '<div style="float: left;vertical-align: middle;height: 100%;">' + this.innerText + '：</div>' +
             '<input id="text' + i + '" type="text" style="margin: 0;width: 100px;height: 17px"/>' +
             '</div>');
@@ -22,9 +37,14 @@ $(function () {
          */
         $('#div' + type + i).draggable({
             containment: "#containment-wrapper",
-            cursor: "move"
-            /*外层div 添加点击事件*/
+            cursor: "move",
+            drag: function (event, ui) {
+                //获取dom的位置
+                controlPro.getChangePosition(this);
+            }
         }).click(function () {
+            /*外层div 添加点击事件*/
+            controlPro.setCurrentEl(this);
             console.log($(this).children())
         });
         /**
@@ -37,10 +57,9 @@ $(function () {
             /*外围的div随控件大小改变而改变*/
             resize: function (event, ui) {
                 this.parentNode.style.width = this.offsetWidth + $(this).prev()[0].offsetWidth + 'px';
+
             }
         });
-
-
     });
 
 });
