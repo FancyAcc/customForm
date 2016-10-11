@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>base on the jQuery-ui implement drag-and-drop</title>
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+<div class='content clear'>
+    <div class='ctrl float-left'>
+        <h1>基本控件</h1>
+        <ul>
+            <li>
+                <button id="inp"><span>文本框</span></button>
+            </li>
+            <li>
+                <button id="area"><span>多行文本框</span></button>
+            </li>
+            <li>
+                <button id="sel"><span>整数</span></button>
+            </li>
+            <li>
+                <button id="num"><span>日期</span></button>
+            </li>
+            <li>
+                <button id="float"><span>标签</span></button>
+            </li>
+        </ul>
+        <!--<div id="draggable" class="ui-widget-content control">-->
+        <!--我是插件-->
+        <!--</div>-->
+    </div>
+    <div class='painter float-left'>
+        <div id="containment-wrapper">
+            <!--<div id="drag" class="ui-widget-content control">-->
+            <!--我可以被改变-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class='ctrl float-left'>
+        <h1>控件属性</h1>
+        <div id="attribute" class="attribute">
+            <p>
+                <label for="ctrlName">控件名称：</label>
+                <input type="text" name="ctrlName" id="ctrlName">
+            </p>
+            <p>
+                <label for="height">高&#12288;&#12288;度：</label>
+                <input type="text" name="width" id="height">
+                <span>px</span>
+            </p>
+            <p>
+                <label for="width">宽&#12288;&#12288;度：</label>
+                <input type="text" name="height" id="width">
+                <span>px</span>
+            </p>
+            <p>
+                <label for="capWidth">标题宽度：</label>
+                <input type="text" name="capWidth" id="capWidth">
+                <span>px</span>
+            </p>
+            <p>
+                <label for="maxLong">最大输入文本长度：</label>
+                <input type="text" name="maxLong" id="maxLong">
+            </p>
+            <p>
+                <label for="axis-x">控件横坐标：</label>
+                <input type="text" name="axis-x" id="axis-x">
+                <span>px</span>
+            </p>
+            <p>
+                <label for="axis-y">控件纵坐标：</label>
+                <input type="text" name="axis-y" id="axis-y">
+                <span>px</span>
+            </p>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/demo.js"></script>
+</body>
+</html>

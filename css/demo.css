@@ -1,0 +1,119 @@
+/*css reset*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    font: 12px/1.5 tahoma, arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+
+}
+
+.float-left {
+    float: left;
+}
+
+.clear:after {
+    content: '';
+    visibility: hidden;
+    clear: both;
+    display: block;
+    height: 0;
+}
+
+h1 {
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+li {
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+}
+
+input {
+    margin: 5px 0;
+}
+
+label {
+    margin: 5px 0 0 5px;
+}
+
+/*demo css*/
+/*外围框*/
+.content {
+    width: 1366px;
+    border: 1px solid;
+    margin: 10px auto;
+}
+
+/*左右框*/
+.ctrl {
+    border: 1px solid;
+    margin: 5px;
+    width: 310px;
+}
+
+/*中间框*/
+.painter {
+    border: 1px solid;
+    margin: 5px 0;
+    width: 720px;
+}
+
+.ctrl, .painter {
+    height: 800px;
+}
+
+/*画布*/
+#containment-wrapper {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-image: url("../images/网格-底.png");
+}
+
+/*控件的样式*/
+.control {
+    width: 160px;
+    height: 30px;
+    float: left;
+    margin: 10px;
+    text-align: center;
+}
+
+/*控件属性的样式*/
+.attribute {
+    font-size: 16px;
+}
+
+.attribute p {
+    margin: 10px 5px;
+}
+
+.attribute label {
+
+}
+
+.attribute input {
+    width: 100px;
+    height: 20px;
+}
+
+.labelText {
+    display: inline-block;
+    border: none;
+}
