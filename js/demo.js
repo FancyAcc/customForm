@@ -25,7 +25,6 @@ $(function () {
         $('#containment-wrapper').append('<div style="width: 200px;border: 1px solid" id="div' + type + i + '">' +
             '<div style="float: left;vertical-align: middle;height: 100%;">' + this.innerText + '：</div>' +
             '<input id="text' + i + '" type="text" style="margin: 0;width: 100px;height: 17px"/>' +
-            '<span style="background: url(images/ui-icons_444444_256x240.png)"></span>' +
             '</div>');
 
         $('#div' + type + i).draggable({
