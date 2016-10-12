@@ -2,18 +2,6 @@
  * Created by Administrator on 2016/9/29.
  */
 $(function () {
-    $('#drag').draggable({
-        /*拖动*/
-        cursor: "move",
-        containment: "#containment-wrapper",
-        scroll: false
-    }).resizable({
-        /*尺寸变更*/
-        containment: "#containment-wrapper",
-        minHeight: 40,
-        minWidth: 300
-    });
-
     //准备变量
     var textNum = 0;
     /**
@@ -23,47 +11,30 @@ $(function () {
         //控件类型
         var type = 'text';
         textNum++;
-        //在画布中添加控件
-        //$('#containment-wrapper').append('<div style="width: 200px;border: 1px solid;left:0px;top:1px;position:absolute" id="div' + type + i + '">' +
-        //    '<div style="float: left;vertical-align: middle;height: 100%;">' + this.innerText + '：</div>' +
-        //    '<input id="text' + i + '" type="text" style="margin: 0;width: 100px;height: 17px"/>' +
-        //    '</div>');
-        /**
-         * 外层div 添加拖拽事件
-         */
+        //创建控件input外层div
         var controlDiv = $('<div></div>');
-        controlDiv.attr("class","controlDiv");
+        //添加 class属性
+        controlDiv.attr("class", "controlDiv");
+        //jquery-ui 可改变大小的方法
         controlDiv.resizable({
-            /*尺寸变更*/
+            /*尺寸变更(在画布的范围内)*/
             containment: "#containment-wrapper",
+            /*设置可变的最小范围*/
             minHeight: 30,
             minWidth: 130
         });
+        //创建input控件
         var textInput = $('<input/>');
-        textInput.attr('id',type+textNum);
-        textInput.attr('class','textControl');
+        //添加id
+        textInput.attr('id', type + textNum);
+        //添加类名
+        textInput.attr('class', 'textControl');
+        //放到父元素里面
         controlDiv.append(textInput);
-        var textControl = customForm.addLabel(customForm.createDragDiv('#div' + type + textNum),'名称:');
-        $('#containment-wrapper').append(customForm.insertControl(textControl,controlDiv));
-
-
-        //
-        //$('#div' + type + i).draggable({
-        //    containment: "#containment-wrapper",
-        //    cursor: "move",
-        //    drag: function (event, ui) {
-        //        //获取dom的位置
-        //        controlPro.getChangePosition(this);
-        //    }
-        //}).click(function () {
-        //    /*外层div 添加点击事件*/
-        //    controlPro.setCurrentEl(this);
-        //    console.log($(this).children())
-        //});
-        /**
-         *  控件上添加改变大小的事件,并改变外围的div
-         */
-
+        //添加控件的标签
+        var textControl = customForm.addLabel(customForm.createDragDiv('#div' + type + textNum), '名称:');
+        //在画布上添加控件
+        $('#containment-wrapper').append(customForm.insertControl(textControl, controlDiv));
     });
 
 });

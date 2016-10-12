@@ -18,6 +18,10 @@ a {
     float: left;
 }
 
+.float-right {
+    float: right;
+}
+
 .clear:after {
     content: '';
     visibility: hidden;
@@ -84,6 +88,7 @@ label {
     height: 100%;
     margin: 0 auto;
     background-image: url("../images/网格-底.png");
+    position: relative;
 }
 
 /*控件的样式*/
