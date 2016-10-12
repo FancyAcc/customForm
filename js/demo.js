@@ -2,24 +2,12 @@
  * Created by Administrator on 2016/9/29.
  */
 $(function () {
-    $('#drag').draggable({
-        /*拖动*/
-        cursor: "move",
-        containment: "#containment-wrapper",
-        scroll: false
-    }).resizable({
-        /*尺寸变更*/
-        containment: "#containment-wrapper",
-        minHeight: 40,
-        minWidth: 300
-    });
-
     //准备变量
     var textNum = 0;
     /**
      * 获取"文本框控件",并添加控件到画板
      */
-    $('#inp').bind('click', function () {
+    $('#inp').bind('clic1k', function () {
         //控件类型
         var type = 'text';
         textNum++;
@@ -31,14 +19,7 @@ $(function () {
         /**
          * 外层div 添加拖拽事件
          */
-        var controlDiv = $('<div></div>');
-        controlDiv.attr("class","controlDiv");
-        controlDiv.resizable({
-            /*尺寸变更*/
-            containment: "#containment-wrapper",
-            minHeight: 30,
-            minWidth: 130
-        });
+        var controlDiv = customForm.resizeDiv();
         var textInput = $('<input/>');
         textInput.attr('id',type+textNum);
         textInput.attr('class','textControl');
