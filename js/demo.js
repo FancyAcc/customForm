@@ -2,28 +2,36 @@
  * Created by Administrator on 2016/9/29.
  */
 $(function () {
+    $('#drag').draggable({
+        /*拖动*/
+        cursor: "move",
+        containment: "#containment-wrapper",
+        scroll: false
+    }).resizable({
+        /*尺寸变更*/
+        containment: "#containment-wrapper",
+        minHeight: 40,
+        minWidth: 300
+    });
+
     //准备变量
     var textNum = 0;
     /**
      * 获取"文本框控件",并添加控件到画板
      */
-    $('#inp').bind('click', function () {
+    $('#inp').bind('clic1k', function () {
         //控件类型
         var type = 'text';
         textNum++;
-        //创建控件input外层div
-        var controlDiv = $('<div></div>');
-        //添加 class属性
-        controlDiv.attr("class", "controlDiv");
-        //jquery-ui 可改变大小的方法
-        controlDiv.resizable({
-            /*尺寸变更(在画布的范围内)*/
-            containment: "#containment-wrapper",
-            /*设置可变的最小范围*/
-            minHeight: 30,
-            minWidth: 130
-        });
-        //创建input控件
+        //在画布中添加控件
+        //$('#containment-wrapper').append('<div style="width: 200px;border: 1px solid;left:0px;top:1px;position:absolute" id="div' + type + i + '">' +
+        //    '<div style="float: left;vertical-align: middle;height: 100%;">' + this.innerText + '：</div>' +
+        //    '<input id="text' + i + '" type="text" style="margin: 0;width: 100px;height: 17px"/>' +
+        //    '</div>');
+        /**
+         * 外层div 添加拖拽事件
+         */
+        var controlDiv = customForm.resizeDiv();
         var textInput = $('<input/>');
         //添加id
         textInput.attr('id', type + textNum);
