@@ -5,8 +5,9 @@ var customForm = {};
 //初始化
 customForm.init = function () {
     //获取画板位置进行
-    customForm.defaultX = $('#containment-wrapper').position().left;
-    customForm.defaultY = $('#containment-wrapper').position().top;
+    console.log($('#containment-wrapper').position());
+    customForm.defaultX = 0;
+    customForm.defaultY = 0;
 }
 //元素基础 zindex
 customForm.controlIndex = 100;
