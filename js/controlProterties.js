@@ -11,8 +11,8 @@ controlPro.setCurrentEl = function(el){
 controlPro.getChangePosition = function(el) {
     controlPro.currentEl = $(el);
     controlPro.changeElPro({
-        "positionX":controlPro.currentEl.css('left').replace('px',''),
-        "positionY":controlPro.currentEl.css('top').replace('px','')
+        "positionX":parseFloat(controlPro.currentEl.css('left').replace('px','')) - customForm.defaultX,
+        "positionY":parseFloat(controlPro.currentEl.css('top').replace('px','')) - customForm.defaultY
     });
 }
 

@@ -1,0 +1,39 @@
+*{
+    padding:0px;
+    margin: 0px;
+}
+input{
+    padding:0px;
+    margin: 0px;
+}
+
+.dragDiv {
+    border: 1px solid;
+    left: 0px;
+    top: 1px;
+    position: absolute;
+    overflow: hidden;
+    background:#fff;
+}
+
+.sel{
+    border:1px solid #003eff;
+    overflow: hidden;
+}
+
+.controlLabel {
+    width: 70px;
+    line-height: 30px;
+    float:left;
+}
+
+.controlDiv {
+    float:left;
+    width:130px;
+    height: 30px;
+}
+
+.textControl {
+    width: 100%;
+    height: 100%;
+}
