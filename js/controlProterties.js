@@ -14,8 +14,8 @@ controlPro.position = function () {
 //获取当前dom的具体位置
 controlPro.getChangePosition = function () {
     controlPro.changeElPro({
-        "positionX": parseFloat($(customForm.currentControl).css('left').replace('px', '')) - customForm.defaultX,
-        "positionY": parseFloat($(customForm.currentControl).css('top').replace('px', '')) - customForm.defaultY
+        "positionX": parseFloat($(customForm.currentControl).css('left').replace('px', '')),
+        "positionY": parseFloat($(customForm.currentControl).css('top').replace('px', ''))
     });
 }
 
@@ -26,7 +26,7 @@ controlPro.changeElPro = function (attrs) {
         for (var j in attrs) {
             if ($(controlPro.attriList[i]).attr('id') == j) {
                 $(controlPro.attriList[i]).val(attrs[j]);
-                property[j] =attrs[j];
+                property[j] = attrs[j];
             }
         }
     }
@@ -44,29 +44,23 @@ controlPro.resize = function (el) {
 controlPro.getAllProperty = function () {
     var current = $(customForm.currentControl);
     controlPro.changeElPro({
-        "positionX": parseFloat(current.css('left').replace('px', '')) - customForm.defaultX,
-        "positionY": parseFloat(current.css('top').replace('px', '')) - customForm.defaultY
+        "positionX": parseFloat(current.css('left').replace('px', '')),
+        "positionY": parseFloat(current.css('top').replace('px', ''))
     });
-    //获取控件名称
-
-    //获取控件宽度
-
-    //控件高度
-
-    //标题宽度
-
-    //最大输入
-
-    //横坐标
-
-    //纵坐标
-
 }
 
 //获取右侧所有的表单
 controlPro.getAttributteEL = function () {
     controlPro.attriList = $("#attribute input");
+    for(var i=0;i<controlPro.attriList.length;i++){
+        $(controlPro.attriList[i]).bind('blur',function(){
+            var ems =$(this);
+            var jpro ={};
+            jpro[ems.attr('name')] = ems.val();
+            controlPro.changeElPro(jpro);
+            customForm.displayControlStyle(ems.attr('name') ,ems.val());
+        });
+    }
 }
 
 controlPro.getAttributteEL();
-

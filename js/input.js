@@ -24,6 +24,7 @@ input.createDom = function (property) {
     //设置属性
     property = dragDiv[1];
     property.ctrlName = property.title + input.textNum;
+    property.name =input.type + input.textNum;
     property.width = input.width;
     property.height = input.height;
     property.maxLength = input.maxlength;

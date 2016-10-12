@@ -4,10 +4,7 @@
 var customForm = {};
 //初始化
 customForm.init = function () {
-    //获取画板位置进行
-    console.log($('#containment-wrapper').position());
-    customForm.defaultX = 0;
-    customForm.defaultY = 0;
+
 }
 //元素基础 zindex
 customForm.controlIndex = 100;
@@ -36,11 +33,16 @@ customForm.createControl = function (property) {
     customForm.elementProperty.push(controll[1]);
 }
 
+function submitDom() {
+    console.log($('#containment-wrapper').html());
+    console.log(customForm.elementProperty);
+}
+
 //创建拖动div
-customForm.createDragDiv = function (id ,property) {
+customForm.createDragDiv = function (id, property) {
     customForm.controlNum++;
-    property.positionX = customForm.defaultX + customForm.controlNum * 10 ;
-    property.positionY = customForm.defaultY + customForm.controlNum * 10;
+    property.positionX = customForm.controlNum * 10;
+    property.positionY = customForm.controlNum * 10;
     var dragDiv = $("<div></div>");
     dragDiv.attr('class', 'dragDiv');
     dragDiv.attr('id', id);
@@ -63,10 +65,7 @@ customForm.createDragDiv = function (id ,property) {
         //设置选中
         customForm.selControlEl(this)
     });
-
-    property.positionX = property.positionX-customForm.defaultX;
-    property.positionY = property.positionY-customForm.defaultY;
-    return [dragDiv,property];
+    return [dragDiv, property];
 }
 
 //创建自定义div
@@ -136,23 +135,36 @@ customForm.deleteControl = function () {
     }
 };
 
+//回写属性
+customForm.displayControlStyle = function(k,v){
+    //debugger;
+    //获取控件
+    var el = $(customForm.currentControl);
+    if(k=='width'){
+        $(el.children()[1]).css('width',v);
+    }else if(k=='height'){
+        $(el.children()[1]).css('height',v);
+    }else if(k=='ctrlName'){
+        $(el.children()[0]).html(v)
+    }else if(k=='maxLength'){
+        $(el.children()[1]).find('input').attr('maxlength',v);
+    }else if(k=='positionX'){
+        $(el).css({left:v})
+    }else if(k=='positionY'){
+        $(el).css({top:v})
+    }else if(k=='titleWidth'){
+        $(el.children()[0]).css({width:v})
+    }
+}
+
 //绑定右侧基本属性设置
 customForm.bindBase = function () {
-    //绑定右侧控件名称
-
-    //绑定右侧高度
-
-    //绑定右侧宽度
-
-    //绑定右侧标题宽度
-
     //绑定位置
     controlPro.position();
 }
 
 //delete键删除
 $(document).keydown(function (event) {
-    console.log(event.keyCode);
     if (event.keyCode == 46) {
         customForm.deleteControl();
     }
