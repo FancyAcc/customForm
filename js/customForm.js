@@ -27,7 +27,14 @@ customForm.createControl = function (property) {
     //判断类型
     switch (property.type) {
         case 'text':
-            controll = input.createDom(property);
+            controll = input.createDom(property, 'text');
+            break;
+        case 'date':
+            controll = input.createDom(property, 'date');
+            break;
+        case 'number':
+            controll = input.createDom(property, 'number');
+            break;
     }
     $('#containment-wrapper').append(controll[0]);
     customForm.elementProperty.push(controll[1]);
@@ -136,24 +143,23 @@ customForm.deleteControl = function () {
 };
 
 //回写属性
-customForm.displayControlStyle = function(k,v){
-    //debugger;
+customForm.displayControlStyle = function (k, v) {
     //获取控件
     var el = $(customForm.currentControl);
-    if(k=='width'){
-        $(el.children()[1]).css('width',v);
-    }else if(k=='height'){
-        $(el.children()[1]).css('height',v);
-    }else if(k=='ctrlName'){
+    if (k == 'width') {
+        $(el.children()[1]).css('width', v);
+    } else if (k == 'height') {
+        $(el.children()[1]).css('height', v);
+    } else if (k == 'ctrlName') {
         $(el.children()[0]).html(v)
-    }else if(k=='maxLength'){
-        $(el.children()[1]).find('input').attr('maxlength',v);
-    }else if(k=='positionX'){
-        $(el).css({left:v})
-    }else if(k=='positionY'){
-        $(el).css({top:v})
-    }else if(k=='titleWidth'){
-        $(el.children()[0]).css({width:v})
+    } else if (k == 'maxLength') {
+        $(el.children()[1]).find('input').attr('maxlength', v);
+    } else if (k == 'positionX') {
+        $(el).css({left: v + "px"})
+    } else if (k == 'positionY') {
+        $(el).css({top: v + "px"})
+    } else if (k == 'titleWidth') {
+        $(el.children()[0]).css({width: v})
     }
 }
 

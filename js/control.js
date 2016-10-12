@@ -2,7 +2,6 @@
  * Created by hanzhongjian on 12/10/16.
  */
 var input = {};
-
 //准备变量
 input.textNum = 0;
 input.type = 'text';
@@ -10,10 +9,11 @@ input.width = 130;
 input.height = 30;
 input.maxlength = 255;
 
-input.createDom = function (property) {
+input.createDom = function (property , type) {
     input.textNum++;
     var controlDiv = customForm.resizeDiv();
     var textInput = $('<input/>');
+    textInput.attr('type',type);
     textInput.attr('id', input.type + input.textNum);
     textInput.attr('name', input.type + input.textNum);
     textInput.attr('class', 'textControl');
@@ -51,7 +51,7 @@ function baseCtrl(id, name, type, cla) {
     $('#baseCtrl').append(liBtn.append(spanBtn));
 }
 baseCtrl('inp', '单行文本框', 'text', 'baseInp');
-baseCtrl('area', '多行文本框', 'testarea', 'baseArea');
+baseCtrl('area', '多行文本框', 'textarea', 'baseArea');
 baseCtrl('num', '整数', 'number', 'baseNum');
 baseCtrl('date', '日期', 'date', 'baseDate');
 baseCtrl('title', '标签', 'title', 'baseTit');
