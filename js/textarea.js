@@ -13,7 +13,7 @@ $(function () {
         /*每次点击控件i加一*/
         i++;
         //在画布上添加控件
-        $('#containment-wrapper').append('<div id="div' + type + i + '" style="border: 1px solid;width: 500px;z-index: "100";">' +
+        $('#containment-wrapper').append('<div id="div' + type + i + '" style="border: 1px solid;width: 500px;z-index: 100;">' +
             '<div style="float: left">' + this.innerText + '：</div>' +
             '<textarea id="textarea' + i + '" rows="5" cols="50"></textarea>' +
             '</div>');
