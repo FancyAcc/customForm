@@ -34,28 +34,10 @@ h1 {
     padding: 5px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
-}
-
-li {
-    margin: 5px;
-    padding: 5px;
-    width: 150px;
-}
-
-input {
-    margin: 5px 0;
-}
-
 label {
     margin: 5px 0 0 5px;
 }
 
-/*demo css*/
 /*外围框*/
 .content {
     width: 1366px;
@@ -87,17 +69,8 @@ label {
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    background-image: url("../images/网格-底.png");
+    background-image: url("../images/bg-img.png");
     position: relative;
-}
-
-/*控件的样式*/
-.control {
-    width: 160px;
-    height: 30px;
-    float: left;
-    margin: 10px;
-    text-align: center;
 }
 
 /*控件属性的样式*/
@@ -109,10 +82,6 @@ label {
     margin: 10px 5px;
 }
 
-.attribute label {
-
-}
-
 .attribute input {
     width: 100px;
     height: 20px;
@@ -121,4 +90,53 @@ label {
 .labelText {
     display: inline-block;
     border: none;
+}
+
+/*基本控件样式*/
+ul.baseCtrl {
+    border-top: 1px solid #CCC;
+    list-style-type: none;
+}
+
+.baseCtrl li {
+    text-align: center;
+    float: left;
+    width: 102px;
+    height: 75px;
+    border-bottom: 1px solid #CCC;
+    background-position: 31px 8px;
+}
+
+.baseCtrl span {
+    display: inline-block;
+    margin-top: 50px;
+}
+
+/*每个控件设置背景*/
+.baseInp {
+    background: url("../images/input.png") no-repeat;
+}
+
+.baseArea {
+    background: url("../images/textarea.png") no-repeat;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.baseNum {
+    background: url("../images/number.png") no-repeat;
+}
+
+.baseDate {
+    background: url("../images/date.png") no-repeat;
+}
+
+.baseTit {
+    background: url("../images/label.png") no-repeat;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.baseBtn {
+
 }
