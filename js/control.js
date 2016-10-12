@@ -31,6 +31,28 @@ input.createDom = function (property) {
     //控件及属性返回
     return [customForm.insertControl(textControl, controlDiv), property]
 };
+
+
+var title = {};
+title.titleNum = 0;
+title.width = 150;
+title.height = 50;
+
+title.createDom = function (property) {
+    title.titleNum++;
+
+    var controlDiv = customForm.resizeDiv();
+    controlDiv.attr('id', 'title' + title.titleNum);
+    controlDiv.attr('name', 'title' + title.titleNum);
+    controlDiv.attr('class', 'titleCtrl');
+
+    property.width = title.width;
+    property.height = title.height;
+
+
+    return [customForm.insertControl(controlDiv), property];
+};
+
 /**
  * 创建基本控件按钮
  * @param id string
