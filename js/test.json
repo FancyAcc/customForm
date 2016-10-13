@@ -8,6 +8,8 @@
     "ctrlName": "单行文本框1",
     "width": 130,
     "height": 30,
+    "id": "text1",
+    "name": "text1",
     "maxLength": 255
   },
   {
@@ -19,6 +21,8 @@
     "ctrlName": "单行文本框2",
     "width": 130,
     "height": 30,
+    "id": "text2",
+    "name": "text2",
     "maxLength": 255
   },
   {
@@ -30,18 +34,22 @@
     "ctrlName": "单行文本框3",
     "width": 130,
     "height": 30,
+    "id": "text3",
+    "name": "text3",
     "maxLength": 255
   },
   {
-    "type": "textarea",
-    "title": "多行文本框",
+    "type": "text",
+    "title": "单行文本框",
     "titleWidth": 100,
     "positionX": 40,
     "positionY": 40,
-    "ctrlName": "多行文本框1",
-    "width": 200,
-    "height": 100,
-    "maxlength": 255
+    "ctrlName": "单行文本框4",
+    "width": 130,
+    "height": 30,
+    "id": "text4",
+    "name": "text4",
+    "maxLength": 255
   },
   {
     "type": "textarea",
@@ -49,10 +57,12 @@
     "titleWidth": 100,
     "positionX": 50,
     "positionY": 50,
-    "ctrlName": "多行文本框2",
+    "ctrlName": "多行文本框1",
     "width": 200,
     "height": 100,
-    "maxlength": 255
+    "maxlength": 255,
+    "id": "area1",
+    "name": "area1"
   },
   {
     "type": "textarea",
@@ -60,21 +70,25 @@
     "titleWidth": 100,
     "positionX": 60,
     "positionY": 60,
-    "ctrlName": "多行文本框3",
+    "ctrlName": "多行文本框2",
     "width": 200,
     "height": 100,
-    "maxlength": 255
+    "maxlength": 255,
+    "id": "area2",
+    "name": "area2"
   },
   {
-    "type": "number",
-    "title": "整数",
+    "type": "textarea",
+    "title": "多行文本框",
     "titleWidth": 100,
     "positionX": 70,
     "positionY": 70,
-    "ctrlName": "整数4",
-    "width": 130,
-    "height": 30,
-    "maxLength": 255
+    "ctrlName": "多行文本框3",
+    "width": 200,
+    "height": 100,
+    "maxlength": 255,
+    "id": "area3",
+    "name": "area3"
   },
   {
     "type": "number",
@@ -85,56 +99,82 @@
     "ctrlName": "整数5",
     "width": 130,
     "height": 30,
+    "id": "text5",
+    "name": "text5",
     "maxLength": 255
   },
   {
-    "type": "date",
-    "title": "日期",
+    "type": "number",
+    "title": "整数",
     "titleWidth": 100,
     "positionX": 90,
     "positionY": 90,
-    "ctrlName": "日期6",
+    "ctrlName": "整数6",
     "width": 130,
     "height": 30,
+    "id": "text6",
+    "name": "text6",
+    "maxLength": 255
+  },
+  {
+    "type": "number",
+    "title": "整数",
+    "titleWidth": 100,
+    "positionX": 100,
+    "positionY": 100,
+    "ctrlName": "整数7",
+    "width": 130,
+    "height": 30,
+    "id": "text7",
+    "name": "text7",
     "maxLength": 255
   },
   {
     "type": "date",
     "title": "日期",
     "titleWidth": 100,
-    "positionX": 100,
-    "positionY": 100,
-    "ctrlName": "日期7",
-    "width": 130,
-    "height": 30,
-    "maxLength": 255
-  },
-  {
-    "type": "title",
-    "title": "标签",
-    "titleWidth": 100,
     "positionX": 110,
     "positionY": 110,
-    "ctrlName": "标签1",
-    "width": 150,
-    "height": 50
+    "ctrlName": "日期8",
+    "width": 130,
+    "height": 30,
+    "id": "text8",
+    "name": "text8"
   },
   {
-    "type": "title",
-    "title": "标签",
+    "type": "date",
+    "title": "日期",
     "titleWidth": 100,
     "positionX": 120,
     "positionY": 120,
-    "ctrlName": "标签2",
-    "width": 150,
-    "height": 50
+    "ctrlName": "日期9",
+    "width": 130,
+    "height": 30,
+    "id": "text9",
+    "name": "text9"
+  },
+  {
+    "type": "title",
+    "title": "标签",
+    "titleWidth": 100,
+    "positionX": 130,
+    "positionY": 130,
+    "ctrlName": "标签1"
+  },
+  {
+    "type": "title",
+    "title": "标签",
+    "titleWidth": 100,
+    "positionX": 140,
+    "positionY": 140,
+    "ctrlName": "标签2"
   },
   {
     "type": "button",
     "title": "按钮",
     "titleWidth": 100,
-    "positionX": 130,
-    "positionY": 130,
+    "positionX": 150,
+    "positionY": 150,
     "ctrlName": "按钮1",
     "width": 100,
     "height": 30
@@ -143,8 +183,8 @@
     "type": "button",
     "title": "按钮",
     "titleWidth": 100,
-    "positionX": 140,
-    "positionY": 140,
+    "positionX": 160,
+    "positionY": 160,
     "ctrlName": "按钮2",
     "width": 100,
     "height": 30
