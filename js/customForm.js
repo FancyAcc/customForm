@@ -118,8 +118,8 @@ customForm.selControlEl = function (el) {
     customForm.currentControl = el;
     //获取当前控件所在位标
     controlPro.changeElPro(customForm.elementProperty[customForm.selIndex]);
-
 }
+
 
 //往控件中增加label
 customForm.addLabel = function (el, title) {
@@ -183,3 +183,24 @@ $(document).keydown(function (event) {
         customForm.deleteControl();
     }
 });
+
+/**
+ * 创建画板div
+ */
+var canvasDiv = {};
+
+canvasDiv.createCanvasInner = function (id) {
+    var canvasInner = $('<div></div>');
+    canvasInner.attr({'id': id});
+    return canvasInner;
+};
+var canvas = canvasDiv.createCanvasInner('containment-wrapper');
+canvas.click(function () {
+    //清除样式;
+    for (var i in customForm.elementArr) {
+        var ele = $(customForm.elementArr[i]);
+        ele.removeClass('sel');
+    }
+});
+//护板对象放到外层div中
+$('#painter').append(canvas);
