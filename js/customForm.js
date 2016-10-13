@@ -92,7 +92,6 @@ customForm.resizeDiv = function () {
             controlPro.resize(this);
         }
     });
-
     return controlDiv;
 }
 

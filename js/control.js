@@ -20,6 +20,8 @@ input.createDom = function (property, type) {
     controlDiv.append(textInput);
     var dragDiv = customForm.createDragDiv('#div' + input.type + input.textNum, property);
     var textControl = customForm.addLabel(dragDiv[0], property.title + input.textNum + ":");
+    console.log(dragDiv);
+    console.log(textControl)
 
     //设置属性
     property = dragDiv[1];
@@ -32,7 +34,7 @@ input.createDom = function (property, type) {
     return [customForm.insertControl(textControl, controlDiv), property]
 };
 
-
+//标签控件
 var title = {};
 title.titleNum = 0;
 title.width = 150;
@@ -40,14 +42,17 @@ title.height = 50;
 
 title.createDom = function (property) {
     title.titleNum++;
-    var dragDiv = customForm.createDragDiv('#div' + input.type + input.textNum, property);
-    var textControl = customForm.addLabel(dragDiv[0], property.title + input.textNum);
+
+    var controlDiv = customForm.resizeDiv();
+    //controlDiv.text(property.title + title.titleNum);
+
+    var dragDiv = customForm.createDragDiv('#divTitle' + title.titleNum, property);
 
     property.width = title.width;
     property.height = title.height;
-    property.ctrlName = property.title + input.textNum;
+    property.ctrlName = property.title + title.titleNum;
 
-    return [customForm.insertControl(textControl), property];
+    return [customForm.insertControl(dragDiv[0], controlDiv[0]), property];
 };
 
 /**
