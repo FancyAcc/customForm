@@ -172,6 +172,7 @@ ul.baseCtrl {
     width: 100px;
     height: 100px;
     background: #FFF;
+    text-align: center;
 }
 
 .btnControl {
@@ -181,6 +182,7 @@ ul.baseCtrl {
     height: 100%;
     text-align: center;
     background: #eee;
+    line-height: 25px;
 }
 
 /*手机设计器样式*/
