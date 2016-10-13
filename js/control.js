@@ -17,6 +17,7 @@ input.createDom = function (property, type) {
     textInput.attr('id', input.type + input.textNum);
     textInput.attr('name', input.type + input.textNum);
     textInput.attr('class', 'textControl');
+    textInput.attr('cf','true');
     controlDiv.append(textInput);
     var dragDiv = customForm.createDragDiv('#div' + input.type + input.textNum, property);
     var textControl = customForm.addLabel(dragDiv[0], property.title + input.textNum + ":");
@@ -26,7 +27,10 @@ input.createDom = function (property, type) {
     property.ctrlName = property.title + input.textNum;
     property.width = input.width;
     property.height = input.height;
-    property.maxLength = input.maxlength;
+    property.id =input.type + input.textNum;
+    property.name =input.type + input.textNum;
+    if (type != 'date')
+        property.maxLength = input.maxlength;
 
     //控件及属性返回
     return [customForm.insertControl(textControl, controlDiv), property]
@@ -35,25 +39,15 @@ input.createDom = function (property, type) {
 //标签控件
 var title = {};
 title.titleNum = 0;
-title.width = 150;
-title.height = 50;
 
 title.createDom = function (property) {
     title.titleNum++;
-
-    var controlDiv = customForm.resizeDiv()
+    var controlDiv = $('<div></div>')
     var titleText = property.title + title.titleNum;
     controlDiv.append(titleText);
-    //controlDiv.text(property.title + title.titleNum);
-
     var dragDiv = customForm.createDragDiv('#divTitle' + title.titleNum, property);
-    //console.log(dragDiv);
-
     property = dragDiv[1];
     property.ctrlName = property.title + title.titleNum;
-    property.width = title.width;
-    property.height = title.height;
-
 
     return [customForm.insertControl(dragDiv[0], controlDiv), property];
 };
@@ -72,6 +66,7 @@ textarea.createDom = function (property) {
     controlDiv.attr('class', 'areaDiv')
 
     var area = $('<textarea></textarea>');
+    area.attr('cf','true');
     area.attr('class', 'textControl');
     area.attr('id', 'area' + textarea.areaNum);
     area.attr('name', 'area' + textarea.areaNum);
@@ -86,6 +81,8 @@ textarea.createDom = function (property) {
     property.width = textarea.width;
     property.height = textarea.height;
     property.maxlength = textarea.maxlength;
+    property.id ='area' + textarea.areaNum
+    property.name ='area' + textarea.areaNum
 
 
     return [customForm.insertControl(areaControl, controlDiv), property]
@@ -107,13 +104,11 @@ button.createDom = function (property) {
     controlDiv.append(textBtn);
 
     var dragDiv = customForm.createDragDiv('#divBtn' + button.btnNum, property);
-    console.log(dragDiv);
     //设置属性
     property = dragDiv[1];
     property.ctrlName = property.title + button.btnNum;
     property.width = button.width;
     property.height = button.height;
-
 
     return [customForm.insertControl(dragDiv[0], controlDiv), property]
 };

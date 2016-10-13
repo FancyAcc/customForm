@@ -18,7 +18,10 @@ customForm.elementArr = [];
 customForm.elementProperty = [];
 //当前位标
 customForm.selIndex = -1;
-
+//画板属性
+customForm.property = {};
+customForm.property.ctrlName = '表单设计器';
+customForm.type = 'canvas';
 customForm.init();
 
 customForm.createControl = function (property) {
@@ -50,6 +53,8 @@ customForm.createControl = function (property) {
 };
 
 function submitDom() {
+    debugger
+
     console.log($('#containment-wrapper').html());
     console.log(customForm.elementProperty);
 }
@@ -77,9 +82,10 @@ customForm.createDragDiv = function (id, property) {
             //获取dom的位置
             customForm.bindBase()
         }
-    }).click(function () {
+    }).click(function (event) {
         //设置选中
         customForm.selControlEl(this)
+        event.stopPropagation();
     });
     return [dragDiv, property];
 }
@@ -117,7 +123,7 @@ customForm.selControlEl = function (el) {
     controlPro.setCurrentEl(el);
     customForm.currentControl = el;
     //获取当前控件所在位标
-    controlPro.changeElPro(customForm.elementProperty[customForm.selIndex]);
+    controlPro.initElPro(customForm.elementProperty[customForm.selIndex]);
 }
 
 
@@ -195,12 +201,13 @@ canvasDiv.createCanvasInner = function (id) {
     return canvasInner;
 };
 var canvas = canvasDiv.createCanvasInner('containment-wrapper');
-canvas.click(function () {
+canvas.click(function (event) {
     //清除样式;
     for (var i in customForm.elementArr) {
         var ele = $(customForm.elementArr[i]);
         ele.removeClass('sel');
     }
+    controlPro.initElPro({ctrlName:customForm.property.ctrlName},'canvas')
 });
 //护板对象放到外层div中
 $('#painter').append(canvas);

@@ -26,7 +26,29 @@ controlPro.changeElPro = function (attrs) {
         for (var j in attrs) {
             if ($(controlPro.attriList[i]).attr('id') == j) {
                 $(controlPro.attriList[i]).val(attrs[j]);
-                property[j] = attrs[j];
+                if (customForm.type == 'canvas'){
+                    debugger
+                    customForm.property[j] = attrs[j];
+                 }else
+                    property[j] = attrs[j];
+            }
+        }
+    }
+}
+
+//初始化控件属性
+controlPro.initElPro = function (attrs, type) {
+    var property = customForm.elementProperty[customForm.selIndex];
+    for (var i = 0; i < controlPro.attriList.length; i++) {
+        $(controlPro.attriList[i]).parent().css({display: 'none'});
+        for (var j in attrs) {
+            if ($(controlPro.attriList[i]).attr('id') == j) {
+                $(controlPro.attriList[i]).parent().css({display: 'block'});
+                $(controlPro.attriList[i]).val(attrs[j]);
+                if (type != 'canvas'){
+                    customForm.type = 'control';
+                    property[j] = attrs[j];
+                }else customForm.type = 'canvas';
             }
         }
     }
@@ -40,25 +62,16 @@ controlPro.resize = function (el) {
     })
 }
 
-//获取控件所有属性
-controlPro.getAllProperty = function () {
-    var current = $(customForm.currentControl);
-    controlPro.changeElPro({
-        "positionX": parseFloat(current.css('left').replace('px', '')),
-        "positionY": parseFloat(current.css('top').replace('px', ''))
-    });
-}
-
 //获取右侧所有的表单
 controlPro.getAttributteEL = function () {
     controlPro.attriList = $("#attribute input");
-    for(var i=0;i<controlPro.attriList.length;i++){
-        $(controlPro.attriList[i]).bind('blur',function(){
-            var ems =$(this);
-            var jpro ={};
+    for (var i = 0; i < controlPro.attriList.length; i++) {
+        $(controlPro.attriList[i]).bind('blur', function () {
+            var ems = $(this);
+            var jpro = {};
             jpro[ems.attr('name')] = ems.val();
             controlPro.changeElPro(jpro);
-            customForm.displayControlStyle(ems.attr('name') ,ems.val());
+            customForm.displayControlStyle(ems.attr('name'), ems.val());
         });
     }
 }

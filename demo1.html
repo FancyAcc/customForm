@@ -3,11 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>base on the jQuery-ui implement drag-and-drop</title>
-    <link rel="stylesheet" href="jquery-ui.min.css">
-    <link rel="stylesheet" href="css/demo.css">
     <link rel="stylesheet" href="css/customer.css">
 </head>
 <body>
-<div class="dragDiv ui-draggable ui-draggable-handle sel" id="#divtext0" style="position: absolute; left: 65px; top: 44px; z-index: 101;"><div class="controlLabel">标签0</div></div><div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext0" style="position: absolute; left: 234px; top: 34px; z-index: 102;"><div class="controlLabel">标签0</div></div><div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext0" style="position: absolute; left: 2px; top: 111px; z-index: 103;"><div class="controlLabel">标签0</div></div><div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext0" style="position: absolute; left: 86px; top: 124px; z-index: 104;"><div class="controlLabel">标签0</div></div><div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext1" style="position: absolute; left: 257px; top: 76px; z-index: 105;"><div class="controlLabel">单行文本框1:</div><div class="controlDiv ui-resizable"><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: block;"></div><input type="text" id="text1" name="text1" class="textControl"></div></div><div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext2" style="position: absolute; left: 46px; top: 221px; z-index: 106;"><div class="controlLabel">单行文本框2:</div><div class="controlDiv ui-resizable"><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: block;"></div><input type="text" id="text2" name="text2" class="textControl"></div></div><div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext3" style="position: absolute; left: 301px; top: 178px; z-index: 107;"><div class="controlLabel">单行文本框3:</div><div class="controlDiv ui-resizable"><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90; display: block;"></div><input type="text" id="text3" name="text3" class="textControl"></div></div>
+<form onsubmit="return subDate(this)">
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext1"
+         style="position: absolute; left: 74px; top: 105px; z-index: 101;">
+        <div class="controlLabel">单行文本框1:</div>
+        <div class="controlDiv ui-resizable">
+            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                 style="z-index: 90; display: block;"></div>
+            <input type="text" id="text1" name="text1" class="textControl" cf="true"></div>
+    </div>
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext2"
+         style="position: absolute; left: 72px; top: 55px; z-index: 102;">
+        <div class="controlLabel">单行文本框2:</div>
+        <div class="controlDiv ui-resizable">
+            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                 style="z-index: 90; display: block;"></div>
+            <input type="text" id="text2" name="text2" class="textControl" cf="true"></div>
+    </div>
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext3"
+         style="position: absolute; left: 323px; top: 56px; z-index: 103;">
+        <div class="controlLabel">单行文本框3:</div>
+        <div class="controlDiv ui-resizable">
+            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                 style="z-index: 90; display: block;"></div>
+            <input type="text" id="text3" name="text3" class="textControl" cf="true"></div>
+    </div>
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext4"
+         style="position: absolute; left: 324px; top: 103px; z-index: 104;">
+        <div class="controlLabel">整数4:</div>
+        <div class="controlDiv ui-resizable">
+            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                 style="z-index: 90; display: block;"></div>
+            <input type="number" id="text4" name="text4" class="textControl" cf="true"></div>
+    </div>
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divtext5"
+         style="position: absolute; left: 75px; top: 151px; z-index: 105;">
+        <div class="controlLabel">日期5:</div>
+        <div class="controlDiv ui-resizable">
+            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                 style="z-index: 90; display: block;"></div>
+            <input type="date" id="text5" name="text5" class="textControl" cf="true"></div>
+    </div>
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divTitle1"
+         style="position: absolute; left: 564px; top: 107px; z-index: 106;">
+        <div>标签1</div>
+    </div>
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divArea1"
+         style="position: absolute; left: 73px; top: 193px; z-index: 107;">
+        <div class="controlLabel">多行文本框1:</div>
+        <div class="areaDiv" style="height: 136px; width: 379px;">
+            <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90; display: block;"></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"
+                 style="z-index: 90; display: block;"></div>
+            <textarea cf="true" class="textControl" id="area1" name="area1"></textarea></div>
+    </div>
+
+    <div class="dragDiv ui-draggable ui-draggable-handle" id="#divBtn1" style="position: absolute; z-index: 105;">
+        <div class="controlDiv ui-resizable"><input type="submit" value="提交"/></div>
+    </div>
+</form>
+
+<script src="js/jquery.js"></script>
+<script src="js/submitDate.js"></script>
 </body>
 </html>
