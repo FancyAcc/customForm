@@ -38,6 +38,12 @@ customForm.createControl = function (property) {
         case 'title':
             controll = title.createDom(property, 'title');
             break;
+        case 'textarea':
+            controll = textarea.createDom(property, 'textarea');
+            break;
+        case 'button':
+            controll = button.createDom(property, 'button');
+            break;
     }
     $('#containment-wrapper').append(controll[0]);
     customForm.elementProperty.push(controll[1]);

@@ -141,8 +141,23 @@ ul.baseCtrl {
 
 }
 
+.areaDiv {
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
 .titleCtrl {
     width: 100px;
     height: 100px;
     background: #FFF;
+}
+
+.btnControl {
+    border-radius: 50px;
+    border: 1px solid;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #eee;
 }
