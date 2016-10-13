@@ -9,11 +9,11 @@ input.width = 130;
 input.height = 30;
 input.maxlength = 255;
 
-input.createDom = function (property , type) {
+input.createDom = function (property, type) {
     input.textNum++;
     var controlDiv = customForm.resizeDiv();
     var textInput = $('<input/>');
-    textInput.attr('type',type);
+    textInput.attr('type', type);
     textInput.attr('id', input.type + input.textNum);
     textInput.attr('name', input.type + input.textNum);
     textInput.attr('class', 'textControl');
@@ -40,17 +40,14 @@ title.height = 50;
 
 title.createDom = function (property) {
     title.titleNum++;
-
-    var controlDiv = customForm.resizeDiv();
-    controlDiv.attr('id', 'title' + title.titleNum);
-    controlDiv.attr('name', 'title' + title.titleNum);
-    controlDiv.attr('class', 'titleCtrl');
+    var dragDiv = customForm.createDragDiv('#div' + input.type + input.textNum, property);
+    var textControl = customForm.addLabel(dragDiv[0], property.title + input.textNum);
 
     property.width = title.width;
     property.height = title.height;
+    property.ctrlName = property.title + input.textNum;
 
-
-    return [customForm.insertControl(controlDiv), property];
+    return [customForm.insertControl(textControl), property];
 };
 
 /**

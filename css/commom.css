@@ -140,3 +140,9 @@ ul.baseCtrl {
 .baseBtn {
 
 }
+
+.titleCtrl {
+    width: 100px;
+    height: 100px;
+    background: #FFF;
+}

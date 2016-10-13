@@ -35,10 +35,13 @@ customForm.createControl = function (property) {
         case 'number':
             controll = input.createDom(property, 'number');
             break;
+        case 'title':
+            controll = title.createDom(property, 'title');
+            break;
     }
     $('#containment-wrapper').append(controll[0]);
     customForm.elementProperty.push(controll[1]);
-}
+};
 
 function submitDom() {
     console.log($('#containment-wrapper').html());
