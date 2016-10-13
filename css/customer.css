@@ -1,11 +1,8 @@
 
 .dragDiv {
-    border: 1px solid;
     left: 0px;
     top: 1px;
     position: absolute;
-    overflow: hidden;
-    background: #fff;
 }
 
 .sel {
@@ -18,13 +15,12 @@
     width: 100px;
     line-height: 30px;
     float: left;
-    background-color: #fff;
 }
 
 .controlDiv {
     float: left;
-    width: 130px;
-    height: 30px;
+    width: 123px;
+    height: 26px;
 }
 
 .textControl {
