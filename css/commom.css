@@ -228,6 +228,10 @@ ul.baseCtrl {
     border: 1px solid #f4f4f4;
 }
 
+.baseRevertCtrl span {
+    display: block;
+}
+
 /*控件重绘是背景设置*/
 .reverttext {
     background: url("../images/input.png") no-repeat;
@@ -259,11 +263,7 @@ ul.baseCtrl {
 .mobileTitleCtrl {
     margin-top: 43px;
 }
-
-.baseRevertCtrl span {
-    display: block;
-}
-
+/*手里边的控件样式*/
 .mobileCtrlDiv {
     height: 44px;
     width: 100%;
