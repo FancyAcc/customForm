@@ -38,6 +38,7 @@ controlPro.changeElPro = function (attrs) {
 
 //初始化控件属性
 controlPro.initElPro = function (attrs, type) {
+    debugger;
     var property = customForm.elementProperty[customForm.selIndex];
     for (var i = 0; i < controlPro.attriList.length; i++) {
         $(controlPro.attriList[i]).parent().css({display: 'none'});

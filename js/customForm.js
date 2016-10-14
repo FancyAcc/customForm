@@ -29,22 +29,22 @@ customForm.createControl = function (property) {
     var controll;
     //判断类型
     switch (property.type) {
-        case 'text':
+        case 0:
             controll = input.createDom(property, 'text');
             break;
-        case 'date':
+        case 2:
             controll = input.createDom(property, 'date');
             break;
-        case 'number':
+        case 1:
             controll = input.createDom(property, 'number');
             break;
-        case 'title':
+        case 3:
             controll = title.createDom(property, 'title');
             break;
-        case 'textarea':
+        case 4:
             controll = textarea.createDom(property, 'textarea');
             break;
-        case 'button':
+        case 5:
             controll = button.createDom(property, 'button');
             break;
     }
@@ -53,7 +53,22 @@ customForm.createControl = function (property) {
 };
 
 function submitDom() {
-    debugger
+    //组装json
+    var subDataJson = {};
+    subDataJson.name = customForm.property.ctrlName;
+    subDataJson.htmlElement =$('#containment-wrapper').html();
+    subDataJson.fieldList = customForm.elementProperty;
+    $.ajax({
+            url: '/oa/service/defineform',
+            type: 'put',
+            data: JSON.stringify(subDataJson),
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            success: function (data, status) {
+                debugger;
+            }
+        }
+    );
 
     console.log($('#containment-wrapper').html());
     console.log(customForm.elementProperty);
@@ -207,7 +222,7 @@ canvas.click(function (event) {
         var ele = $(customForm.elementArr[i]);
         ele.removeClass('sel');
     }
-    controlPro.initElPro({ctrlName:customForm.property.ctrlName},'canvas')
+    controlPro.initElPro({ctrlName: customForm.property.ctrlName}, 'canvas')
 });
 //护板对象放到外层div中
 $('#painter').append(canvas);
