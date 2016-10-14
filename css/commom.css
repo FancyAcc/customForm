@@ -249,7 +249,7 @@ ul.baseCtrl {
     background: url("../images/date.png") no-repeat;
 }
 
-.reverttitle {
+.revertlabel {
     background: url("../images/label.png") no-repeat;
 }
 
@@ -263,17 +263,58 @@ ul.baseCtrl {
 .mobileTitleCtrl {
     margin-top: 43px;
 }
+
 /*手里边的控件样式*/
 .mobileCtrlDiv {
     height: 44px;
     width: 100%;
     background: #fff;
     margin-bottom: 12px;
+
 }
 
+/*控件标题样式*/
 .controlTitle {
     padding: 3px 10px;
     font-size: 14px;
     font-family: '微软雅黑';
     width: 71px;
+    float: left;
+}
+
+/*控件内容样式*/
+.mobDivtextarea {
+    float: left;
+    width: 186px;
+    height: 44px;
+    background: url(../images/bg-input.png) -1px 12px no-repeat;
+}
+
+.mobDivtext {
+    float: left;
+    width: 186px;
+    height: 44px;
+    background: url(../images/bg-input.png) -1px 12px no-repeat;
+}
+
+.mobDivdate {
+    float: left;
+    width: 186px;
+    height: 44px;
+    background: url(../images/bg-select.png) -1px 12px no-repeat;
+}
+
+.mobDivnumber {
+    float: left;
+    width: 186px;
+    height: 44px;
+    background: url(../images/bg-number.png) -1px 12px no-repeat;
+}
+
+/*标签控件样式*/
+.mobDivlabel {
+    line-height: 44px;
+    text-align: center;
+    font-size: 22px;
+    font-family: '微软雅黑';
 }

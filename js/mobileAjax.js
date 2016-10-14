@@ -14,25 +14,41 @@ mobileForm.ctrlRevert = function () {
 
     for (attrs in strForm) {
         //去除button类型的控件
-        if (strForm[attrs].type == 'button') {
-            strForm.splice(attrs, 1);
-            strForm.length--;
+        //if (strForm[attrs].type == 'button') {
+        //    strForm.splice(attrs, 1);
+        //    strForm.length--;
+        //}
+
+        switch (strForm[attrs].type) {
+            case 0:
+                strForm[attrs].type = 'text';
+                strForm[attrs].title = "单行文本框";
+                break;
+            case 1:
+                strForm[attrs].type = 'number';
+                strForm[attrs].title = "整数"
+                break;
+            case 2:
+                strForm[attrs].type = 'date';
+                strForm[attrs].title = "日期"
+                break;
+            case 3:
+                strForm[attrs].type = 'label';
+                strForm[attrs].title = "标签"
+                break;
+            case 4:
+                strForm[attrs].type = 'textarea';
+                strForm[attrs].title = "多行文本框"
+                break;
         }
         /*创建li元素回流重绘*/
         var formDivOuter = $('<li></li>');
         //添加各种属性
-        formDivOuter.attr('height', strForm[attrs].height);
-        formDivOuter.attr('maxLength', strForm[attrs].maxLength);
-        formDivOuter.attr('positionX', strForm[attrs].positionX);
-        formDivOuter.attr('positionY', strForm[attrs].positionY);
         formDivOuter.attr('title', strForm[attrs].title);
-        formDivOuter.attr('titleWidth', strForm[attrs].titleWidth);
-        formDivOuter.attr('width', strForm[attrs].width);
         formDivOuter.attr('type', strForm[attrs].type);
-        formDivOuter.attr('ctrlName', strForm[attrs].ctrlName);
+        formDivOuter.attr('fieldname', strForm[attrs].fieldname);
         formDivOuter.attr('class', ' revert' + strForm[attrs].type);
         formDivOuter.attr('id', strForm[attrs].id);
-        formDivOuter.attr('name', strForm[attrs].name);
         //添加点击事件 删除本身
         formDivOuter.click(function (event) {
             event.stopPropagation();
@@ -48,7 +64,7 @@ mobileForm.ctrlRevert = function () {
         //创建span标签 显示控件名称
         var nameSpan = $('<span></span>');
         nameSpan.attr('class', 'mobileNameCtrl');
-        var revertName = strForm[attrs].ctrlName;
+        var revertName = strForm[attrs].fieldname;
         nameSpan.append(revertName);
 
         //添加控件标签 和 控件名称
@@ -70,16 +86,26 @@ mobileForm.createMobileCtrl = function (ele) {
     mobileDivCtrl.attr('id', ele.attr('id'));
     mobileDivCtrl.attr('name', ele.attr('name'));
 
-    /*创建标签div*/
-    var mobDivTitle = $('<div></div>');
-    mobDivTitle.attr('class', 'controlTitle');
-    var mobileTitle = ele.attr('ctrlname');
-    mobDivTitle.append(mobileTitle);
-    mobileDivCtrl.append(mobDivTitle)
-    /*创建控件Div*/
-    var mobDivCtrl = $('<div></div>');
-    mobDivCtrl.attr('class', 'mobDiv' + ele.attr('type'));
-    mobileDivCtrl.append(mobDivCtrl);
+    //判断是不是标签类型
+    if (ele.attr('type') == 'label') {
+        var mobLabelDiv = $('<div></div>');
+        mobLabelDiv.attr('class', 'mobDivlabel');
+        var mobileLab = ele.attr('fieldname');
+        mobLabelDiv.append(mobileLab);
+        mobileDivCtrl.append(mobLabelDiv);
+    } else {
+        /*创建标签div*/
+        var mobDivTitle = $('<div></div>');
+        mobDivTitle.attr('class', 'controlTitle');
+        var mobileTitle = ele.attr('fieldname');
+        mobDivTitle.append(mobileTitle);
+        mobileDivCtrl.append(mobDivTitle);
+
+        /*创建控件Div*/
+        var mobDivCtrl = $('<div></div>');
+        mobDivCtrl.attr('class', 'mobDiv' + ele.attr('type'));
+        mobileDivCtrl.append(mobDivCtrl);
+    }
     //向手机画布中添加控件
     $('#mobileCanvas').append(mobileDivCtrl)
 };
@@ -135,11 +161,11 @@ function submitDom() {
      * 使用ajax请求的post方式 提交数据
      */
     $.ajax({
-        data: mobileCtrlNewOrderBy,
+        data: JSON.stringify(mobileCtrlNewOrderBy),
         type: 'post',
-        url: 'http://192.168.1.49:8080/oa/service/defineform/updateOrderby',
+        url: '/oa/service/defineform/updateOrderby',
         dataType: 'json',
-        contentType: 'charset=utf-8',
+        contentType: 'application/json;charset=utf-8',
         cache: false,
         success: function (req) {
             console.log(req);
@@ -158,14 +184,16 @@ $(function () {
     /**
      * 使用ajax请求获取json值
      */
+    var getTempId = {'id': 'da3946822d3c4e858ade2fdb953cea43'}
     $.ajax({
-        type: 'get', /*请求类型*/
-        url: 'js/test.json', /*请求路径*/
+        type: 'post', /*请求类型*/
+        url: '/oa/service/defineform/getAppStyle', /*请求路径*/
         contentType: "application/json; charset=utf-8", /*编码*/
+        data: JSON.stringify(getTempId),
         dataType: 'json', /*数据类型*/
         success: function (mes) {
             /*获取ajax请求后的数据*/
-            var ctrlForm = mes.data;
+            var ctrlForm = mes.data[0];
             mobileForm.oldJson = ctrlForm;
             mobileForm.getCtrlrevert = ctrlForm;
             mobileForm.ctrlRevert();
