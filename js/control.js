@@ -29,6 +29,8 @@ input.createDom = function (property, type) {
     property.height = input.height;
     property.id =input.type + input.textNum;
     property.name =input.type + input.textNum;
+    property.fieldname = property.ctrlName;
+    property.field =input.type + input.textNum;
     if (type != 'date')
         property.maxLength = input.maxlength;
 
@@ -59,6 +61,7 @@ textarea.areaNum = 0;
 textarea.width = 200;
 textarea.height = 100;
 textarea.maxlength = 255;
+textarea.type = 'textarea';
 //创建dom
 textarea.createDom = function (property) {
     textarea.areaNum++;
@@ -83,7 +86,8 @@ textarea.createDom = function (property) {
     property.maxlength = textarea.maxlength;
     property.id ='area' + textarea.areaNum
     property.name ='area' + textarea.areaNum
-
+    property.fieldname = property.ctrlName;
+    property.field =textarea.type + textarea.areaNum;
 
     return [customForm.insertControl(areaControl, controlDiv), property]
 };
@@ -133,9 +137,9 @@ function baseCtrl(id, name, type, cla) {
 
     $('#baseCtrl').append(liBtn.append(spanBtn));
 }
-baseCtrl('inp', '单行文本框', 'text', 'baseInp');
-baseCtrl('area', '多行文本框', 'textarea', 'baseArea');
-baseCtrl('num', '整数', 'number', 'baseNum');
-baseCtrl('date', '日期', 'date', 'baseDate');
-baseCtrl('title', '标签', 'title', 'baseTit');
-baseCtrl('btn', '按钮', 'button', 'baseBtn');
+baseCtrl('inp', '单行文本框', 0, 'baseInp');
+baseCtrl('area', '多行文本框', 4, 'baseArea');
+baseCtrl('num', '整数', 1, 'baseNum');
+baseCtrl('date', '日期', 2, 'baseDate');
+baseCtrl('title', '标签', 3, 'baseTit');
+baseCtrl('btn', '按钮', '5', 'baseBtn');
